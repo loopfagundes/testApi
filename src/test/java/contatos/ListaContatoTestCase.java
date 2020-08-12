@@ -9,6 +9,7 @@ import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
+import models.CriarContato;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -18,6 +19,7 @@ public class ListaContatoTestCase {
 
     private static final String BASE_URI = "https://api-de-tarefas.herokuapp.com";
     private static final String BASE_PATH = "/contacts";
+    private CriarContato criarContato = new CriarContato();
     private static RequestSpecification requestSpec;
     private static ResponseSpecification responseSpec;
     private static RequestSpecification requestSpecPost;
@@ -26,6 +28,7 @@ public class ListaContatoTestCase {
     @BeforeClass
     public void setUp() {
         requestListaContato();
+        requestCriarContato();
     }
 
     public void requestListaContato() {
@@ -36,6 +39,20 @@ public class ListaContatoTestCase {
 
         responseSpec = new ResponseSpecBuilder()
                 .expectStatusCode(200)
+                .expectContentType(ContentType.JSON)
+                .build();
+    }
+
+    public void requestCriarContato() {
+        requestSpecPost = new RequestSpecBuilder()
+                .setBaseUri(BASE_URI)
+                .setBasePath(BASE_PATH)
+                .setBody(criarContato)
+                .setContentType(ContentType.JSON)
+                .build();
+
+        responseSpecPost = new ResponseSpecBuilder()
+                .expectStatusCode(201)
                 .expectContentType(ContentType.JSON)
                 .build();
     }
@@ -51,6 +68,20 @@ public class ListaContatoTestCase {
                     .get()
                 .then()
                     .log().body()
-                .spec(responseSpec);
+                    .spec(responseSpec);
+    }
+
+    @Description("Teste com o metodo de POSTCriarContato para criar um contato")
+    @Issue("Link para solucao")
+    @Feature("Usuario")
+    @Test
+    public void POSTCriarContato() {
+        given()
+                    .spec(requestSpecPost)
+                .when()
+                    .post()
+                .then()
+                    .log().body()
+                .spec(responseSpecPost);
     }
 }
