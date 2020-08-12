@@ -7,6 +7,7 @@ import io.qameta.allure.Issue;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import models.CriarContato;
@@ -108,6 +109,7 @@ public class ListaContatoTestCase {
                         .extract().path("data.id");
 
         PATCHEditarContato(id);
+        DELDeleteContato(id);
     }
 
     @Description("Teste com o metodo de PATCHEditarContato para editar alugns dados de contato")
@@ -123,5 +125,20 @@ public class ListaContatoTestCase {
                     .log()
                     .body()
                     .spec(responseSpecPatch);
+    }
+
+    @Description("Teste com o metodo de DELContato para delete um contato")
+    @Issue("Link para solucao")
+    @Feature("Usuario")
+    @Test
+    public void DELDeleteContato(String id) {
+        given()
+                    .spec(requestSpec)
+                .when()
+                    .delete("/" + id)
+                .then()
+                    .log()
+                    .body()
+                    .statusCode(204);
     }
 }
