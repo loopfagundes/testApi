@@ -95,7 +95,7 @@ public class ListaContatoTestCase {
 
     @Description("Teste com o metodo de POSTCriarContato para criar um contato." +
                     " Teste com PATCH para editar contato." +
-                    " Teste com DEl para delete contato." +
+                    " Teste com DEL para delete contato." +
                     " Validado com arquivo de schema")
     @Issue("Link para solucao")
     @Feature("Usuario")
