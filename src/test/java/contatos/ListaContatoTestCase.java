@@ -1,5 +1,6 @@
 package contatos;
 
+import com.github.fge.jsonschema.main.JsonSchema;
 import framework.BaseTestFW;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -7,13 +8,17 @@ import io.qameta.allure.Issue;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
+import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import models.CriarContato;
 import models.EditarContato;
+import org.testng.FileAssert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import java.io.File;
 
 import static io.restassured.RestAssured.given;
 
@@ -92,7 +97,10 @@ public class ListaContatoTestCase {
                     .spec(responseSpec);
     }
 
-    @Description("Teste com o metodo de POSTCriarContato para criar um contato")
+    @Description("Teste com o metodo de POSTCriarContato para criar um contato." +
+                    " Teste com PATCH para editar contato." +
+                    " Teste com DEl para delete contato." +
+                    " Validado com arquivo de schema")
     @Issue("Link para solucao")
     @Feature("Usuario")
     @Test
@@ -106,6 +114,7 @@ public class ListaContatoTestCase {
                         .log()
                         .body()
                         .spec(responseSpecPost)
+                        .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schema" + File.separator + "dataContatoSchema.json"))
                         .extract().path("data.id");
 
         PATCHEditarContato(id);

@@ -1,1 +1,0 @@
-{"uuid":"e7f883b8-1239-4906-bbcc-f1f916fef153","name":"contatos.ListaContatoTestCase","children":["a5d9da65-860b-4997-9367-e504498acdf6"],"befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1597265645183,"stop":1597265645899}],"afters":[],"links":[],"start":1597265645164,"stop":1597265649699}
