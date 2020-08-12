@@ -1,7 +1,5 @@
 package contatos;
 
-import com.github.fge.jsonschema.main.JsonSchema;
-import framework.BaseTestFW;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Issue;
@@ -9,12 +7,10 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.module.jsv.JsonSchemaValidator;
-import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import models.CriarContato;
 import models.EditarContato;
-import org.testng.FileAssert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
