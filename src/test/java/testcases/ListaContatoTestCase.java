@@ -1,4 +1,4 @@
-package contatos;
+package testcases;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -82,7 +82,8 @@ public class ListaContatoTestCase {
 
     @Description("Teste com o metodo de GETListaContato para buscar a lista de contato")
     @Issue("Link para solucao")
-    @Feature("Usuario")
+    @Feature("Contato")
+    @Feature("GET Lista Contato")
     @Test
     public void GETListaContato() {
         given()
@@ -101,6 +102,7 @@ public class ListaContatoTestCase {
                     " Validado com arquivo de schema")
     @Issue("Link para solucao")
     @Feature("Contato")
+    @Feature("POST Criar Contato")
     @Test
     public void POSTCriarContato() {
         Response payload =
@@ -119,13 +121,13 @@ public class ListaContatoTestCase {
         PATCHEditarContato();
         DELDeleteContato();
 
-        payload.then().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schema" + File.separator + "dataContatoSchema.json"));
+        payload.then().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schemas" + File.separator + "dataContatoSchema.json"));
     }
 
     @Description("Teste com o metodo de PATCHEditarContato para editar alugns dados de contato")
     @Issue("Link para solucao")
     @Feature("Contato")
-    @Feature("Patch")
+    @Feature("PATCH Editar Contato")
     @Test
     public void PATCHEditarContato() {
         given()
@@ -141,7 +143,7 @@ public class ListaContatoTestCase {
     @Description("Teste com o metodo de DELContato para delete um contato")
     @Issue("Link para solucao")
     @Feature("Contato")
-    @Feature("Deletar")
+    @Feature("DEL Deletar Contato")
     @Test
     public void DELDeleteContato() {
         given()

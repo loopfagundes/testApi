@@ -1,0 +1,196 @@
+<?xml version="1.0" ?>
+<root>
+    <key name="$schema">http://json-schema.org/draft-07/schema</key>
+    <key name="$id">http://example.com/example.json</key>
+    <type>object</type>
+    <title>The root schema</title>
+    <description>The root schema comprises the entire JSON document.</description>
+    <default/>
+    <examples>
+        <item>
+            <data>
+                <id>1805</id>
+                <type>contacts</type>
+                <attributes>
+                    <name>Luciano</name>
+                    <last-name>Test</last-name>
+                    <email>test@test.com</email>
+                    <age>29</age>
+                    <phone>5199999999</phone>
+                    <address>baltazar</address>
+                    <state>RS</state>
+                    <city>POA</city>
+                </attributes>
+            </data>
+        </item>
+    </examples>
+    <required>
+        <item>data</item>
+    </required>
+    <properties>
+        <data>
+            <key name="$id">#/properties/data</key>
+            <type>object</type>
+            <title>The data schema</title>
+            <description>An explanation about the purpose of this instance.</description>
+            <default/>
+            <examples>
+                <item>
+                    <id>1805</id>
+                    <type>contacts</type>
+                    <attributes>
+                        <name>Luciano</name>
+                        <last-name>Test</last-name>
+                        <email>test@test.com</email>
+                        <age>29</age>
+                        <phone>5199999999</phone>
+                        <address>baltazar</address>
+                        <state>RS</state>
+                        <city>POA</city>
+                    </attributes>
+                </item>
+            </examples>
+            <required>
+                <item>id</item>
+                <item>type</item>
+                <item>attributes</item>
+            </required>
+            <properties>
+                <id>
+                    <key name="$id">#/properties/data/properties/id</key>
+                    <type>string</type>
+                    <title>The id schema</title>
+                    <description>An explanation about the purpose of this instance.</description>
+                    <default/>
+                    <examples>
+                        <item>1805</item>
+                    </examples>
+                </id>
+                <type>
+                    <key name="$id">#/properties/data/properties/type</key>
+                    <type>string</type>
+                    <title>The type schema</title>
+                    <description>An explanation about the purpose of this instance.</description>
+                    <default/>
+                    <examples>
+                        <item>contacts</item>
+                    </examples>
+                </type>
+                <attributes>
+                    <key name="$id">#/properties/data/properties/attributes</key>
+                    <type>object</type>
+                    <title>The attributes schema</title>
+                    <description>An explanation about the purpose of this instance.</description>
+                    <default/>
+                    <examples>
+                        <item>
+                            <name>Luciano</name>
+                            <last-name>Test</last-name>
+                            <email>test@test.com</email>
+                            <age>29</age>
+                            <phone>5199999999</phone>
+                            <address>baltazar</address>
+                            <state>RS</state>
+                            <city>POA</city>
+                        </item>
+                    </examples>
+                    <required>
+                        <item>name</item>
+                        <item>last-name</item>
+                        <item>email</item>
+                        <item>age</item>
+                        <item>phone</item>
+                        <item>address</item>
+                        <item>state</item>
+                        <item>city</item>
+                    </required>
+                    <properties>
+                        <name>
+                            <key name="$id">#/properties/data/properties/attributes/properties/name</key>
+                            <type>string</type>
+                            <title>The name schema</title>
+                            <description>An explanation about the purpose of this instance.</description>
+                            <default/>
+                            <examples>
+                                <item>Luciano</item>
+                            </examples>
+                        </name>
+                        <last-name>
+                            <key name="$id">#/properties/data/properties/attributes/properties/last-name</key>
+                            <type>string</type>
+                            <title>The last-name schema</title>
+                            <description>An explanation about the purpose of this instance.</description>
+                            <default/>
+                            <examples>
+                                <item>Test</item>
+                            </examples>
+                        </last-name>
+                        <email>
+                            <key name="$id">#/properties/data/properties/attributes/properties/email</key>
+                            <type>string</type>
+                            <title>The email schema</title>
+                            <description>An explanation about the purpose of this instance.</description>
+                            <default/>
+                            <examples>
+                                <item>test@test.com</item>
+                            </examples>
+                        </email>
+                        <age>
+                            <key name="$id">#/properties/data/properties/attributes/properties/age</key>
+                            <type>integer</type>
+                            <title>The age schema</title>
+                            <description>An explanation about the purpose of this instance.</description>
+                            <default>0</default>
+                            <examples>
+                                <item>29</item>
+                            </examples>
+                        </age>
+                        <phone>
+                            <key name="$id">#/properties/data/properties/attributes/properties/phone</key>
+                            <type>string</type>
+                            <title>The phone schema</title>
+                            <description>An explanation about the purpose of this instance.</description>
+                            <default/>
+                            <examples>
+                                <item>5199999999</item>
+                            </examples>
+                        </phone>
+                        <address>
+                            <key name="$id">#/properties/data/properties/attributes/properties/address</key>
+                            <type>string</type>
+                            <title>The address schema</title>
+                            <description>An explanation about the purpose of this instance.</description>
+                            <default/>
+                            <examples>
+                                <item>baltazar</item>
+                            </examples>
+                        </address>
+                        <state>
+                            <key name="$id">#/properties/data/properties/attributes/properties/state</key>
+                            <type>string</type>
+                            <title>The state schema</title>
+                            <description>An explanation about the purpose of this instance.</description>
+                            <default/>
+                            <examples>
+                                <item>RS</item>
+                            </examples>
+                        </state>
+                        <city>
+                            <key name="$id">#/properties/data/properties/attributes/properties/city</key>
+                            <type>string</type>
+                            <title>The city schema</title>
+                            <description>An explanation about the purpose of this instance.</description>
+                            <default/>
+                            <examples>
+                                <item>POA</item>
+                            </examples>
+                        </city>
+                    </properties>
+                    <additionalProperties>True</additionalProperties>
+                </attributes>
+            </properties>
+            <additionalProperties>True</additionalProperties>
+        </data>
+    </properties>
+    <additionalProperties>True</additionalProperties>
+</root>
