@@ -4,12 +4,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonPropertyOrder({"lastName", "email", "phone"})
-public class EditarContato {
+public class EditarContatoModel {
     private String lastName;
     private String email;
     private String phone;
 
-    public EditarContato() {
+    public EditarContatoModel() {
         lastName = "TestNG";
         email = "testng@test.com";
         phone = "5199669966";

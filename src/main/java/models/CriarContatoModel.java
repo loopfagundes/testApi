@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonPropertyOrder({"name", "lastName", "email", "age", "phone", "address", "state", "city"})
-public class CriarContato {
+public class CriarContatoModel {
     private String name;
     private String lastName;
     private String email;
@@ -14,7 +14,7 @@ public class CriarContato {
     private String state;
     private String city;
 
-    public CriarContato() {
+    public CriarContatoModel() {
         name = "Luciano";
         lastName = "Test";
         email = "test@test.com";

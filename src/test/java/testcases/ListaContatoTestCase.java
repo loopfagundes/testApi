@@ -10,8 +10,8 @@ import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
-import models.CriarContato;
-import models.EditarContato;
+import models.CriarContatoModel;
+import models.EditarContatoModel;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -23,8 +23,8 @@ public class ListaContatoTestCase {
 
     private static final String BASE_URI = "https://api-de-tarefas.herokuapp.com";
     private static final String BASE_PATH = "/contacts";
-    private CriarContato criarContato = new CriarContato();
-    private EditarContato editarContato = new EditarContato();
+    private CriarContatoModel criarContatoModel = new CriarContatoModel();
+    private EditarContatoModel editarContatoModel = new EditarContatoModel();
     private static RequestSpecification requestSpec;
     private static ResponseSpecification responseSpec;
     private static RequestSpecification requestSpecPost;
@@ -56,7 +56,7 @@ public class ListaContatoTestCase {
         requestSpecPost = new RequestSpecBuilder()
                 .setBaseUri(BASE_URI)
                 .setBasePath(BASE_PATH)
-                .setBody(criarContato)
+                .setBody(criarContatoModel)
                 .setContentType(ContentType.JSON)
                 .build();
 
@@ -70,7 +70,7 @@ public class ListaContatoTestCase {
         requestSpecPatch = new RequestSpecBuilder()
                 .setBaseUri(BASE_URI)
                 .setBasePath(BASE_PATH)
-                .setBody(editarContato)
+                .setBody(editarContatoModel)
                 .setContentType(ContentType.JSON)
                 .build();
 
