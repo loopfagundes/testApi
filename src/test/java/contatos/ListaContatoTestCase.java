@@ -7,6 +7,7 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.module.jsv.JsonSchemaValidator;
+import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import models.CriarContato;
@@ -30,6 +31,7 @@ public class ListaContatoTestCase {
     private static ResponseSpecification responseSpecPost;
     private static RequestSpecification requestSpecPatch;
     private static ResponseSpecification responseSpecPatch;
+    private static String id;
 
     @BeforeClass
     public void setUp() {
@@ -98,10 +100,10 @@ public class ListaContatoTestCase {
                     " Teste com DEL para delete contato." +
                     " Validado com arquivo de schema")
     @Issue("Link para solucao")
-    @Feature("Usuario")
+    @Feature("Contato")
     @Test
     public void POSTCriarContato() {
-        String id =
+        Response payload =
             given()
                         .spec(requestSpecPost)
                     .when()
@@ -110,18 +112,22 @@ public class ListaContatoTestCase {
                         .log()
                         .body()
                         .spec(responseSpecPost)
-                        .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schema" + File.separator + "dataContatoSchema.json"))
-                        .extract().path("data.id");
+                        .extract().response();
 
-        PATCHEditarContato(id);
-        DELDeleteContato(id);
+        id = payload.then().extract().path("data.id");
+
+        PATCHEditarContato();
+        DELDeleteContato();
+
+        payload.then().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schema" + File.separator + "dataContatoSchema.json"));
     }
 
     @Description("Teste com o metodo de PATCHEditarContato para editar alugns dados de contato")
     @Issue("Link para solucao")
-    @Feature("Usuario")
+    @Feature("Contato")
+    @Feature("Patch")
     @Test
-    public void PATCHEditarContato(String id) {
+    public void PATCHEditarContato() {
         given()
                     .spec(requestSpecPatch)
                 .when()
@@ -134,9 +140,10 @@ public class ListaContatoTestCase {
 
     @Description("Teste com o metodo de DELContato para delete um contato")
     @Issue("Link para solucao")
-    @Feature("Usuario")
+    @Feature("Contato")
+    @Feature("Deletar")
     @Test
-    public void DELDeleteContato(String id) {
+    public void DELDeleteContato() {
         given()
                     .spec(requestSpec)
                 .when()
