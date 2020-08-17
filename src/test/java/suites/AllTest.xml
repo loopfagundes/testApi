@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name = "API DE TESTE" verbose="1">
-    <test name = "Contato">
-        <classes>
-            <class name="testcases.ListaContatoTestCase"></class>
-        </classes>
+    <test name = "Authentication, Contatos, Usuarios e as Tarefas">
+        <packages>
+            <package name="testcases"/>
+        </packages>
     </test>
 </suite>
